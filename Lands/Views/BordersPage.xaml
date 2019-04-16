@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="Lands.Views.BordersPage"
+    BindingContext="{Binding Main, Source={StaticResource Locator }}"
+    Icon="ic_language"
+    Title="Borders">
+    <ContentPage.Content>
+         <StackLayout
+            BindingContext="{Binding Land}"
+            Padding="5">
+            <Label
+                    FontSize="Default"
+                    FontAttributes="Bold"
+                    Text="{Binding Land.Name}"
+                    TextColor="Black">
+                </Label>
+            <ListView
+                HasUnevenRows="true"
+                ItemsSource="{Binding Borders}">
+                 <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/> <!--ocupe todo lo que le quede -->
+                                        <ColumnDefinition Width="3*"/>
+                                    </Grid.ColumnDefinitions>
+                                        <Label
+                                            Grid.Column="0"
+                                            Text="{Binding Code}"
+                                            TextColor="Black">
+                                        </Label>
+                                        <Label
+                                            HorizontalOptions="Start"
+                                            Grid.Column="1"
+                                            Text="{Binding Name}"
+                                            TextColor="Black">
+                                        </Label>
+                                </Grid>  
+                         </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                
+                
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
